@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scheme-dark scroll-smooth scroll-pt-[32px] motion-reduce:scroll-auto">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,268 +10,128 @@
   <meta property="og:description" content="Building businesses and the systems behind them. Selected work by Nicholas Biuso." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/nick-headshot.jpg" />
-  <style>
-    :root {
-      color-scheme: dark;
-      --desk: #080808;
-      --paper: #0d0d0d;
-      --ink: #f2f2f2;
-      --muted: #a3a3a3;
-      --rule: #303030;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 32px; }
-    body {
-      margin: 0;
-      background: var(--desk);
-      color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    ::selection { background: var(--ink); color: var(--paper); }
-    a { color: inherit; text-underline-offset: 5px; }
-    a:hover { text-decoration: underline; }
-    a:focus-visible { outline: 2px solid currentColor; outline-offset: 6px; }
-    p, h1, h2, h3 { margin: 0; }
-    .page {
-      position: relative;
-      isolation: isolate;
-      width: min(100% - 64px, 1200px);
-      margin: 40px auto;
-      padding-inline: clamp(48px, 9vw, 120px);
-      background: var(--paper) url("assets/paper-grain.svg");
-      box-shadow: 0 0 0 1px #ffffff06, 0 16px 64px #0004;
-    }
-    .page::before, .page::after {
-      content: "";
-      position: absolute;
-      inset-block: 0;
-      width: 44px;
-      background: radial-gradient(circle at 50% 36px, var(--desk) 0 6px, #ffffff06 6px 7px, transparent 7px) 0 0 / 44px 72px repeat-y;
-      pointer-events: none;
-      z-index: -1;
-    }
-    .page::before { left: 0; border-right: 1px dashed #ffffff0c; }
-    .page::after { right: 0; border-left: 1px dashed #ffffff0c; }
-    .skip-link { position: absolute; left: 24px; top: -100px; padding: 8px 16px; background: var(--ink); color: var(--paper); z-index: 1; }
-    .skip-link:focus { top: 16px; }
-    .header { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 32px; border-bottom: 1px solid var(--rule); font-size: 14px; }
-    .wordmark { font-weight: 600; text-decoration: none; letter-spacing: -.02em; }
-    .nav { display: flex; gap: 28px; }
-    .nav a { color: var(--muted); text-decoration: none; }
-    .nav a:hover { color: var(--ink); text-decoration: underline; }
-    .hero { display: grid; grid-template-columns: 1fr 280px; align-items: center; column-gap: 48px; padding-block: 100px 96px; }
-    .eyebrow, .section-label { font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
-    h1 { margin-top: 22px; font-size: clamp(46px, 6.4vw, 72px); line-height: 1.06; font-weight: 500; letter-spacing: -.065em; }
-    .intro { margin-top: 26px; max-width: 510px; color: var(--muted); font-size: 18px; line-height: 1.65; }
-    .hero-link { display: inline-flex; align-items: center; gap: 12px; margin-top: 28px; font-size: 14px; text-decoration: none; }
-    .arrow { font-size: 18px; line-height: 1; }
-    .portrait { display: block; width: 280px; height: 350px; object-fit: cover; object-position: center 22%; filter: grayscale(1); }
-    .section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 18px; border-bottom: 1px solid var(--ink); }
-    .section-note { font-size: 12px; color: var(--muted); }
-    .project { display: grid; grid-template-columns: 40px 1fr 1.25fr; align-items: baseline; gap: 24px; padding-block: 30px; border-bottom: 1px solid var(--rule); }
-    .project-number { color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
-    .project h3 { font-size: 22px; font-weight: 500; letter-spacing: -.035em; line-height: 1.3; }
-    .project-category { margin-top: 5px; color: var(--muted); font-size: 12px; }
-    .project-description { max-width: 400px; color: var(--muted); font-size: 14px; line-height: 1.7; }
-    .photo-section { padding-top: 72px; }
-    .photo-grid { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 16px; margin-top: 24px; }
-    .photo-tile { position: relative; grid-column: span 3; min-width: 0; margin: 0; overflow: hidden; border-radius: 18px; background: #181818; }
-    .photo-tile img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); }
-    .photo-tile--presenting { grid-column: span 6; aspect-ratio: 1; }
-    .photo-tile--office, .photo-tile--team { grid-column: span 4; }
-    .photo-tile--stage { aspect-ratio: 3 / 4; }
-    .photo-tile--stage img { object-position: 50% 60%; }
-    .photo-tile--portrait img { object-position: 50% 22%; }
-    .photo-tile--team img { object-position: 65% 50%; }
-    .about { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; padding-block: 80px; }
-    .about .section-label { padding-top: 5px; }
-    .about-copy { max-width: 560px; }
-    .about-copy p + p { margin-top: 18px; color: var(--muted); }
-    .contact { display: grid; grid-template-columns: minmax(0, 1fr) 140px; align-items: center; gap: 48px; padding-block: 46px 50px; border-top: 1px solid var(--rule); }
-    .contact h2 { margin-block: 12px 20px; font-size: clamp(30px, 4vw, 42px); font-weight: 400; line-height: 1.2; letter-spacing: -.045em; }
-    .email { display: inline-flex; align-items: center; gap: 18px; font-size: 16px; text-decoration-thickness: 1px; }
-    .contact-badge-wrap { position: relative; width: 140px; }
-    .contact-badge { position: relative; display: grid; place-items: center; width: 140px; height: 140px; border-radius: 50%; text-decoration: none; }
-    .contact-badge:hover { text-decoration: none; }
-    .badge-ring { position: absolute; inset: 0; width: 100%; height: 100%; fill: var(--muted); transform-origin: 50% 50%; animation: badge-turn 24s linear infinite; }
-    .badge-ring text { font-family: ui-monospace, "SFMono-Regular", Menlo, monospace; font-size: 10px; font-weight: 500; }
-    .badge-arrow { display: grid; place-items: center; width: 58px; height: 58px; border: 1px solid var(--rule); border-radius: 50%; transition: background-color .2s, color .2s; }
-    .badge-arrow svg { width: 22px; height: 22px; }
-    .contact-badge:hover .badge-ring, .contact-badge:focus-visible .badge-ring { animation-play-state: paused; fill: var(--ink); }
-    .contact-badge:hover .badge-arrow, .contact-badge:focus-visible .badge-arrow { background: var(--ink); color: var(--paper); }
-    .contact-badge-wrap.is-paused .badge-ring { animation-play-state: paused; }
-    .badge-motion { position: absolute; top: calc(100% - 4px); left: 50%; transform: translateX(-50%); display: grid; place-items: center; width: 32px; height: 32px; padding: 8px; border: 0; border-radius: 50%; background: transparent; color: var(--muted); cursor: pointer; }
-    .badge-motion:hover { color: var(--ink); }
-    .badge-motion svg { width: 14px; height: 14px; }
-    .motion-play, .is-paused .motion-pause { display: none; }
-    .is-paused .motion-play { display: block; }
-    @keyframes badge-turn { to { transform: rotate(360deg); } }
-    .footer { display: flex; justify-content: space-between; gap: 24px; padding-block: 24px 32px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 12px; }
-    .footer a { text-decoration: none; }
-    .footer a:hover { text-decoration: underline; }
-    @media (min-width: 701px) and (max-width: 900px) {
-      .hero { grid-template-columns: 1fr 180px; column-gap: 28px; }
-      h1 { font-size: 48px; }
-      .portrait { width: 180px; height: 224px; }
-    }
-    @media (max-width: 700px) {
-      .page { width: calc(100% - 24px); margin-block: 12px; padding-inline: 24px; }
-      .page::before, .page::after { display: none; }
-      .header { padding-block: 24px; }
-      .nav { gap: 20px; }
-      .hero { grid-template-columns: 1fr 160px; gap: 28px; padding-block: 72px; }
-      h1 { font-size: clamp(42px, 7vw, 54px); }
-      .intro { font-size: 16px; }
-      .portrait { width: 160px; height: 200px; }
-      .project { grid-template-columns: 24px 1fr 1.15fr; gap: 16px; }
-      .project h3 { font-size: 20px; }
-      .photo-section { padding-top: 56px; }
-      .photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-      .photo-tile { grid-column: span 1; aspect-ratio: 3 / 4; border-radius: 14px; }
-      .photo-tile--presenting { grid-column: 1 / -1; aspect-ratio: 4 / 3; }
-      .photo-tile--portrait, .photo-tile--team { aspect-ratio: 1; }
-      .about { grid-template-columns: 1fr 2fr; gap: 24px; padding-block: 64px; }
-      .contact { grid-template-columns: minmax(0, 1fr) 120px; gap: 24px; }
-      .contact-badge-wrap { width: 120px; }
-      .contact-badge { width: 120px; height: 120px; }
-    }
-    @media (max-width: 480px) {
-      .header { font-size: 12px; gap: 16px; }
-      .nav { gap: 16px; }
-      .hero { grid-template-columns: 1fr; padding-block: 56px; gap: 28px; }
-      .portrait { grid-row: 1; width: 160px; height: 200px; }
-      h1 { font-size: 48px; margin-top: 16px; }
-      .intro { margin-top: 20px; }
-      .hero-link { margin-top: 22px; }
-      .section-note { font-size: 11px; }
-      .project { grid-template-columns: 24px 1fr; row-gap: 12px; padding-block: 24px; }
-      .project-description { grid-column: 2; }
-      .about { grid-template-columns: 1fr; gap: 22px; padding-block: 48px; }
-      .contact { grid-template-columns: 1fr; gap: 28px; padding-block: 36px 40px; }
-      .contact-badge-wrap { justify-self: end; }
-      .footer { font-size: 11px; gap: 16px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .badge-ring { animation: none; }
-      .badge-arrow { transition: none; }
-      .badge-motion { display: none; }
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @theme {
+      --color-desk: #080808;
+      --color-paper: #0d0d0d;
+      --color-ink: #f2f2f2;
+      --color-muted: #a3a3a3;
+      --color-rule: #303030;
+
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+      --breakpoint-phone: 481px;
+      --breakpoint-sheet: 701px;
+      --breakpoint-wide: 901px;
+
+      --animate-badge-turn: badge-turn 24s linear infinite;
+      @keyframes badge-turn {
+        to { transform: rotate(360deg); }
+      }
     }
   </style>
 </head>
-<body id="top">
-  <a class="skip-link" href="#main">Skip to content</a>
-  <div class="page">
-    <header class="header">
-      <a class="wordmark" href="#top" aria-label="Nicholas Biuso, back to top">Nicholas Biuso</a>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+<body id="top" class="m-0 bg-desk font-sans text-[16px] leading-[1.6] text-ink antialiased selection:bg-ink selection:text-paper [&_a]:underline-offset-[5px] [&_a:focus-visible]:[outline:2px_solid_currentColor] [&_a:focus-visible]:outline-offset-[6px]">
+  <a class="absolute left-[24px] -top-[100px] z-10 bg-ink px-[16px] py-[8px] text-paper underline focus:top-[16px]" href="#main">Skip to content</a>
+  <div class="relative isolate mx-auto my-[12px] w-[calc(100%_-_24px)] bg-paper bg-[url(assets/paper-grain.svg)] px-[24px] shadow-[0_0_0_1px_#ffffff06,0_16px_64px_#0004] sheet:my-[40px] sheet:w-[min(100%_-_64px,1200px)] sheet:px-[clamp(48px,9vw,120px)]">
+    <span aria-hidden="true" class="pointer-events-none absolute inset-y-0 -z-10 hidden w-[44px] border-dashed border-[#ffffff0c] bg-[radial-gradient(circle_at_50%_36px,var(--color-desk)_0_6px,#ffffff06_6px_7px,transparent_7px)] bg-[length:44px_72px] bg-repeat-y sheet:block left-0 border-r"></span>
+    <span aria-hidden="true" class="pointer-events-none absolute inset-y-0 -z-10 hidden w-[44px] border-dashed border-[#ffffff0c] bg-[radial-gradient(circle_at_50%_36px,var(--color-desk)_0_6px,#ffffff06_6px_7px,transparent_7px)] bg-[length:44px_72px] bg-repeat-y sheet:block right-0 border-l"></span>
+    <header class="flex items-center justify-between gap-[16px] border-b border-rule py-[24px] text-[12px] phone:gap-[24px] phone:text-[14px] sheet:py-[32px]">
+      <a class="font-semibold tracking-[-.02em] no-underline hover:underline" href="#top" aria-label="Nicholas Biuso, back to top">Nicholas Biuso</a>
+      <nav class="flex gap-[16px] phone:gap-[20px] sheet:gap-[28px]" aria-label="Main navigation">
+        <a class="text-muted no-underline hover:text-ink hover:underline" href="#work">Work</a>
+        <a class="text-muted no-underline hover:text-ink hover:underline" href="#about">About</a>
+        <a class="text-muted no-underline hover:text-ink hover:underline" href="#contact">Contact</a>
       </nav>
     </header>
     <main id="main">
-      <section class="hero" aria-labelledby="intro-title">
+      <section class="grid grid-cols-[1fr] items-center gap-[28px] py-[56px] phone:grid-cols-[1fr_160px] phone:py-[72px] sheet:grid-cols-[1fr_180px] sheet:gap-y-0 sheet:pt-[100px] sheet:pb-[96px] wide:grid-cols-[1fr_280px] wide:gap-x-[48px]" aria-labelledby="intro-title">
         <div>
-          <p class="eyebrow">Founder · Operator · Systems builder</p>
-          <h1 id="intro-title">Building businesses.<br />Making things work.</h1>
-          <p class="intro">I'm Nicholas. I build businesses and the systems behind them — from oral care to software, custom CRMs, and the everyday work in between.</p>
-          <a class="hero-link" href="#work">A few things I've built <span class="arrow" aria-hidden="true">↓</span></a>
+          <p class="text-[11px] font-medium tracking-[.12em] text-muted uppercase">Founder · Operator · Systems builder</p>
+          <h1 id="intro-title" class="mt-[16px] text-[48px] leading-[1.06] font-medium tracking-[-.065em] phone:mt-[22px] phone:text-[clamp(42px,7vw,54px)] sheet:text-[48px] wide:text-[clamp(46px,6.4vw,72px)]">Building businesses.<br />Making things work.</h1>
+          <p class="mt-[20px] max-w-[510px] text-[16px] leading-[1.65] text-muted phone:mt-[26px] sheet:text-[18px]">I'm Nicholas. I build businesses and the systems behind them — from oral care to software, custom CRMs, and the everyday work in between.</p>
+          <a class="mt-[22px] inline-flex items-center gap-[12px] text-[14px] no-underline hover:underline phone:mt-[28px]" href="#work">A few things I've built <span class="text-[18px] leading-none" aria-hidden="true">↓</span></a>
         </div>
-        <img class="portrait" src="assets/nick-headshot.jpg" alt="Portrait of Nicholas Biuso" width="280" height="350" />
+        <img class="row-start-1 block h-[200px] w-[160px] object-cover object-[center_22%] grayscale phone:row-auto sheet:h-[224px] sheet:w-[180px] wide:h-[350px] wide:w-[280px]" src="assets/nick-headshot.jpg" alt="Portrait of Nicholas Biuso" width="280" height="350" />
       </section>
       <section id="work" aria-labelledby="work-title">
-        <div class="section-heading">
-          <h2 class="section-label" id="work-title">Selected work</h2>
-          <p class="section-note">Businesses &amp; systems</p>
+        <div class="flex items-baseline justify-between gap-[16px] border-b border-ink pb-[18px]">
+          <h2 class="text-[11px] font-medium tracking-[.12em] text-muted uppercase" id="work-title">Selected work</h2>
+          <p class="text-[11px] text-muted phone:text-[12px]">Businesses &amp; systems</p>
         </div>
-        <article class="project">
-          <span class="project-number" aria-hidden="true">01</span>
-          <div><h3>YesSmile</h3><p class="project-category">Software</p></div>
-          <p class="project-description">Building a software business, informed by the realities of running one.</p>
+        <article class="grid grid-cols-[24px_1fr] items-baseline gap-x-[16px] gap-y-[12px] border-b border-rule py-[24px] phone:grid-cols-[24px_1fr_1.15fr] phone:gap-y-[16px] phone:py-[30px] sheet:grid-cols-[40px_1fr_1.25fr] sheet:gap-[24px]">
+          <span class="text-[12px] text-muted tabular-nums" aria-hidden="true">01</span>
+          <div><h3 class="text-[20px] leading-[1.3] font-medium tracking-[-.035em] sheet:text-[22px]">YesSmile</h3><p class="mt-[5px] text-[12px] text-muted">Software</p></div>
+          <p class="col-start-2 max-w-[400px] text-[14px] leading-[1.7] text-muted phone:col-auto">Building a software business, informed by the realities of running one.</p>
         </article>
-        <article class="project">
-          <span class="project-number" aria-hidden="true">02</span>
-          <div><h3>GuaranTeeth</h3><p class="project-category">Oral care</p></div>
-          <p class="project-description">Building and scaling an oral care business, from the product to the operations behind it.</p>
+        <article class="grid grid-cols-[24px_1fr] items-baseline gap-x-[16px] gap-y-[12px] border-b border-rule py-[24px] phone:grid-cols-[24px_1fr_1.15fr] phone:gap-y-[16px] phone:py-[30px] sheet:grid-cols-[40px_1fr_1.25fr] sheet:gap-[24px]">
+          <span class="text-[12px] text-muted tabular-nums" aria-hidden="true">02</span>
+          <div><h3 class="text-[20px] leading-[1.3] font-medium tracking-[-.035em] sheet:text-[22px]">GuaranTeeth</h3><p class="mt-[5px] text-[12px] text-muted">Oral care</p></div>
+          <p class="col-start-2 max-w-[400px] text-[14px] leading-[1.7] text-muted phone:col-auto">Building and scaling an oral care business, from the product to the operations behind it.</p>
         </article>
-        <article class="project">
-          <span class="project-number" aria-hidden="true">03</span>
-          <div><h3>Custom systems</h3><p class="project-category">Consulting &amp; development</p></div>
-          <p class="project-description">CRMs, sales tools, and automation built around how a team actually works.</p>
+        <article class="grid grid-cols-[24px_1fr] items-baseline gap-x-[16px] gap-y-[12px] border-b border-rule py-[24px] phone:grid-cols-[24px_1fr_1.15fr] phone:gap-y-[16px] phone:py-[30px] sheet:grid-cols-[40px_1fr_1.25fr] sheet:gap-[24px]">
+          <span class="text-[12px] text-muted tabular-nums" aria-hidden="true">03</span>
+          <div><h3 class="text-[20px] leading-[1.3] font-medium tracking-[-.035em] sheet:text-[22px]">Custom systems</h3><p class="mt-[5px] text-[12px] text-muted">Consulting &amp; development</p></div>
+          <p class="col-start-2 max-w-[400px] text-[14px] leading-[1.7] text-muted phone:col-auto">CRMs, sales tools, and automation built around how a team actually works.</p>
         </article>
       </section>
-      <section class="photo-section" id="photos" aria-labelledby="photos-title">
-        <div class="section-heading">
-          <h2 class="section-label" id="photos-title">In the work</h2>
-          <p class="section-note">A few moments along the way</p>
+      <section class="pt-[56px] sheet:pt-[72px]" id="photos" aria-labelledby="photos-title">
+        <div class="flex items-baseline justify-between gap-[16px] border-b border-ink pb-[18px]">
+          <h2 class="text-[11px] font-medium tracking-[.12em] text-muted uppercase" id="photos-title">In the work</h2>
+          <p class="text-[11px] text-muted phone:text-[12px]">A few moments along the way</p>
         </div>
-        <div class="photo-grid">
-          <figure class="photo-tile photo-tile--presenting">
-            <img src="assets/presenting-nyc.jpg" alt="Nicholas Biuso presenting the 100-Point AI System in New York City" width="1400" height="1050" loading="lazy" decoding="async" />
+        <div class="mt-[24px] grid grid-cols-2 gap-[12px] sheet:grid-cols-10 sheet:gap-[16px]">
+          <figure class="relative m-0 min-w-0 overflow-hidden rounded-[14px] bg-[#181818] sheet:rounded-[18px] col-span-full aspect-[4/3] sheet:col-span-6 sheet:aspect-square">
+            <img class="absolute inset-0 block size-full object-cover grayscale" src="assets/presenting-nyc.jpg" alt="Nicholas Biuso presenting the 100-Point AI System in New York City" width="1400" height="1050" loading="lazy" decoding="async" />
           </figure>
-          <figure class="photo-tile photo-tile--office">
-            <img src="assets/office-nyc.jpg" alt="Nicholas Biuso working from a Manhattan office" width="1050" height="1400" loading="lazy" decoding="async" />
+          <figure class="relative m-0 min-w-0 overflow-hidden rounded-[14px] bg-[#181818] sheet:rounded-[18px] col-span-1 aspect-[3/4] sheet:col-span-4 sheet:aspect-auto">
+            <img class="absolute inset-0 block size-full object-cover grayscale" src="assets/office-nyc.jpg" alt="Nicholas Biuso working from a Manhattan office" width="1050" height="1400" loading="lazy" decoding="async" />
           </figure>
-          <figure class="photo-tile photo-tile--stage">
-            <img src="assets/stage-hyatt-regency.jpg" alt="Nicholas Biuso speaking at the Hyatt Regency with GuaranTeeth partners" width="1050" height="1400" loading="lazy" decoding="async" />
+          <figure class="relative m-0 min-w-0 overflow-hidden rounded-[14px] bg-[#181818] sheet:rounded-[18px] col-span-1 aspect-[3/4] sheet:col-span-3">
+            <img class="absolute inset-0 block size-full object-cover grayscale object-[50%_60%]" src="assets/stage-hyatt-regency.jpg" alt="Nicholas Biuso speaking at the Hyatt Regency with GuaranTeeth partners" width="1050" height="1400" loading="lazy" decoding="async" />
           </figure>
-          <figure class="photo-tile photo-tile--portrait">
-            <img src="assets/nick-headshot.jpg" alt="Portrait of Nicholas Biuso" width="933" height="1400" loading="lazy" decoding="async" />
+          <figure class="relative m-0 min-w-0 overflow-hidden rounded-[14px] bg-[#181818] sheet:rounded-[18px] col-span-1 aspect-square sheet:col-span-3 sheet:aspect-auto">
+            <img class="absolute inset-0 block size-full object-cover grayscale object-[50%_22%]" src="assets/nick-headshot.jpg" alt="Portrait of Nicholas Biuso" width="933" height="1400" loading="lazy" decoding="async" />
           </figure>
-          <figure class="photo-tile photo-tile--team">
-            <img src="assets/team-working-session.jpg" alt="Nicholas Biuso in a working session with a client team" width="1400" height="1050" loading="lazy" decoding="async" />
+          <figure class="relative m-0 min-w-0 overflow-hidden rounded-[14px] bg-[#181818] sheet:rounded-[18px] col-span-1 aspect-square sheet:col-span-4 sheet:aspect-auto">
+            <img class="absolute inset-0 block size-full object-cover grayscale object-[65%_50%]" src="assets/team-working-session.jpg" alt="Nicholas Biuso in a working session with a client team" width="1400" height="1050" loading="lazy" decoding="async" />
           </figure>
         </div>
       </section>
-      <section class="about" id="about" aria-labelledby="about-title">
-        <h2 class="section-label" id="about-title">A little about me</h2>
-        <div class="about-copy">
+      <section class="grid grid-cols-1 gap-[22px] py-[48px] phone:grid-cols-[1fr_2fr] phone:gap-[24px] phone:py-[64px] sheet:gap-[48px] sheet:py-[80px]" id="about" aria-labelledby="about-title">
+        <h2 class="pt-[5px] text-[11px] font-medium tracking-[.12em] text-muted uppercase" id="about-title">A little about me</h2>
+        <div class="max-w-[560px] [&>p+p]:mt-[18px] [&>p+p]:text-muted">
           <p>I'm an operator first, then a builder. Running my own companies taught me that good systems make a real difference — to the business and the people doing the work.</p>
           <p>Today, I bring those lessons to teams across dental, real estate, medical supply, payments, and lending. I like clear processes, useful software, and doing what I say I'll do.</p>
         </div>
       </section>
-      <section class="contact" id="contact" aria-labelledby="contact-title">
+      <section class="grid grid-cols-[1fr] items-center gap-[28px] border-t border-rule pt-[36px] pb-[40px] phone:grid-cols-[minmax(0,1fr)_120px] phone:gap-[24px] phone:pt-[46px] phone:pb-[50px] sheet:grid-cols-[minmax(0,1fr)_140px] sheet:gap-[48px]" id="contact" aria-labelledby="contact-title">
         <div>
-          <p class="section-label">Get in touch</p>
-          <h2 id="contact-title">Have something in mind?</h2>
-          <a class="email" href="mailto:nick@guaranteeth.net">nick@guaranteeth.net <span class="arrow" aria-hidden="true">↗</span></a>
+          <p class="text-[11px] font-medium tracking-[.12em] text-muted uppercase">Get in touch</p>
+          <h2 id="contact-title" class="mt-[12px] mb-[20px] text-[clamp(30px,4vw,42px)] leading-[1.2] font-normal tracking-[-.045em]">Have something in mind?</h2>
+          <a class="inline-flex items-center gap-[18px] text-[16px] underline decoration-[1px]" href="mailto:nick@guaranteeth.net">nick@guaranteeth.net <span class="text-[18px] leading-none" aria-hidden="true">↗</span></a>
         </div>
-        <div class="contact-badge-wrap">
-          <a class="contact-badge" href="mailto:nick@guaranteeth.net" aria-label="Email Nicholas Biuso — let's make your project work">
-            <svg class="badge-ring" viewBox="0 0 140 140" aria-hidden="true" focusable="false">
+        <div class="relative w-[120px] justify-self-end phone:justify-self-auto sheet:w-[140px]">
+          <a class="group relative grid size-[120px] place-items-center rounded-full no-underline hover:no-underline sheet:size-[140px]" href="mailto:nick@guaranteeth.net" aria-label="Email Nicholas Biuso — let's make your project work">
+            <svg class="absolute inset-0 size-full origin-center animate-badge-turn fill-muted group-hover:fill-ink group-hover:[animation-play-state:paused] group-focus-visible:fill-ink group-focus-visible:[animation-play-state:paused] motion-reduce:animate-none" viewBox="0 0 140 140" aria-hidden="true" focusable="false">
               <defs>
                 <path id="contact-badge-path" d="M 70,16 a 54,54 0 1,1 0,108 a 54,54 0 1,1 0,-108" />
               </defs>
-              <text><textPath href="#contact-badge-path" textLength="339.29" lengthAdjust="spacing">LET’S MAKE IT WORK · LET’S MAKE IT WORK · </textPath></text>
+              <text class="font-mono text-[10px] font-medium"><textPath href="#contact-badge-path" textLength="339.29" lengthAdjust="spacing">LET’S MAKE IT WORK · LET’S MAKE IT WORK · </textPath></text>
             </svg>
-            <span class="badge-arrow" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" focusable="false"><path d="M6 18 18 6M6 6h12v12" /></svg>
+            <span class="grid size-[58px] place-items-center rounded-full border border-rule transition-[background-color,color] duration-[200ms] ease-[ease] group-hover:bg-ink group-hover:text-paper group-focus-visible:bg-ink group-focus-visible:text-paper motion-reduce:transition-none" aria-hidden="true">
+              <svg class="size-[22px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" focusable="false"><path d="M6 18 18 6M6 6h12v12" /></svg>
             </span>
           </a>
-          <button class="badge-motion" type="button" aria-label="Pause badge animation" title="Pause badge animation">
-            <svg class="motion-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6v12M15 6v12" /></svg>
-            <svg class="motion-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="m9 6 9 6-9 6Z" /></svg>
-          </button>
         </div>
       </section>
     </main>
-    <footer class="footer">
+    <footer class="flex justify-between gap-[16px] border-t border-rule pt-[24px] pb-[32px] text-[11px] text-muted phone:gap-[24px] phone:text-[12px]">
       <p>© Nicholas Biuso</p>
-      <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+      <a class="no-underline hover:underline" href="#top">Back to top <span aria-hidden="true">↑</span></a>
     </footer>
   </div>
-  <script>
-    const badgeMotion = document.querySelector('.badge-motion');
-    badgeMotion.addEventListener('click', () => {
-      const paused = badgeMotion.closest('.contact-badge-wrap').classList.toggle('is-paused');
-      const label = paused ? 'Resume badge animation' : 'Pause badge animation';
-      badgeMotion.setAttribute('aria-label', label);
-      badgeMotion.title = label;
-    });
-  </script>
 </body>
 </html>
