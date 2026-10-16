@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nicholas Biuso — Operations, Custom CRM &amp; Sales Systems</title>
+  <meta name="description" content="Nicholas Biuso helps businesses fix operational inefficiencies with custom CRM and sales systems that give teams accuracy, scale, and insight into every stage of every lead." />
+  <meta property="og:title" content="Nicholas Biuso — Custom CRM &amp; Sales Systems" />
+  <meta property="og:description" content="Consulting and custom software that turns operational chaos into a system. Proven across dental, real estate, medical supply, payments, and asset-based lending." />
+  <meta property="og:image" content="assets/nick-headshot.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+          },
+          colors: {
+            ink: { 950: '#060a14', 900: '#0b1220', 800: '#121b2e', 700: '#1c2740' },
+            accent: { 400: '#5eb3ff', 500: '#2f8fff', 600: '#1a6fe0' },
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body { background: #060a14; }
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse at 50% 0%, #000 30%, transparent 75%);
+    }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+  </style>
+</head>
+<body class="font-sans text-slate-200 antialiased selection:bg-accent-500/30">
+
+  <!-- NAV -->
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-ink-950/75 backdrop-blur-xl">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+      <a href="#top" class="flex items-center gap-2.5">
+        <span class="grid h-9 w-9 place-items-center rounded-lg bg-gradient-to-br from-accent-400 to-accent-600 text-sm font-bold text-white">NB</span>
+        <span class="font-semibold tracking-tight text-white">Nicholas Biuso</span>
+      </a>
+      <div class="hidden items-center gap-8 text-sm text-slate-400 md:flex">
+        <a href="#solutions" class="hover:text-white">Solutions</a>
+        <a href="#pipeline" class="hover:text-white">Lead Intelligence</a>
+        <a href="#industries" class="hover:text-white">Industries</a>
+        <a href="#about" class="hover:text-white">About</a>
+      </div>
+      <a href="#contact" class="rounded-full bg-white px-4 py-2 text-sm font-semibold text-ink-950 transition hover:bg-accent-400">Book a Call</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="relative overflow-hidden pt-28 sm:pt-36">
+      <div class="grid-bg pointer-events-none absolute inset-0"></div>
+      <div class="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[900px] -translate-x-1/2 rounded-full bg-accent-500/20 blur-[120px]"></div>
+
+      <div class="relative mx-auto grid max-w-7xl items-center gap-14 px-4 pb-20 sm:px-6 lg:grid-cols-12 lg:px-8 lg:pb-28">
+        <div class="lg:col-span-7">
+          <p class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-300">
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+            Consulting &amp; custom software · Proven across 5 industries
+          </p>
+          <h1 class="text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl">
+            Your sales team shouldn't be <span class="font-serif font-normal italic text-accent-400">guessing.</span>
+          </h1>
+          <p class="mt-6 max-w-xl text-lg leading-relaxed text-slate-400">
+            I help businesses eliminate operational inefficiencies by building custom CRMs and sales tools designed around how <em class="text-slate-200 not-italic font-medium">your</em> business actually runs — so your team gets accuracy, your company gets scale, and you get insight into every stage of every lead.
+          </p>
+          <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+            <a href="#contact" class="inline-flex items-center justify-center gap-2 rounded-full bg-accent-500 px-6 py-3.5 font-semibold text-white shadow-lg shadow-accent-500/25 transition hover:bg-accent-600">
+              Get an Operations Audit
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#industries" class="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3.5 font-semibold text-white transition hover:bg-white/5">See where it's proven</a>
+          </div>
+          <dl class="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-white/10 pt-8">
+            <div><dt class="text-xs uppercase tracking-wider text-slate-500">Building</dt><dd class="mt-1 text-3xl font-bold text-white">6 yrs</dd></div>
+            <div><dt class="text-xs uppercase tracking-wider text-slate-500">Industries</dt><dd class="mt-1 text-3xl font-bold text-white">5+</dd></div>
+            <div><dt class="text-xs uppercase tracking-wider text-slate-500">Built for</dt><dd class="mt-1 text-3xl font-bold text-white">You</dd></div>
+          </dl>
+        </div>
+
+        <div class="relative lg:col-span-5">
+          <div class="absolute -inset-4 rounded-[2rem] bg-gradient-to-tr from-accent-500/30 via-transparent to-emerald-400/10 blur-2xl"></div>
+          <div class="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-ink-800">
+            <img src="assets/nick-headshot.jpg" alt="Nicholas Biuso, founder" class="aspect-[4/5] w-full object-cover object-top" />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink-950 via-ink-950/70 to-transparent p-6 pt-20">
+              <p class="text-lg font-semibold text-white">Nicholas Biuso</p>
+              <p class="text-sm text-slate-400">Founder · Operator · Systems Builder</p>
+            </div>
+          </div>
+          <div class="absolute -left-4 top-10 hidden rounded-2xl border border-white/10 bg-ink-900/90 p-4 shadow-2xl backdrop-blur sm:block lg:-left-10">
+            <p class="text-xs text-slate-500">Lead #4,218 · Stage</p>
+            <p class="mt-1 flex items-center gap-2 text-sm font-semibold text-white"><span class="h-2 w-2 rounded-full bg-emerald-400"></span>Proposal → Closing</p>
+            <div class="mt-3 h-1.5 w-40 overflow-hidden rounded-full bg-white/10"><div class="h-full w-4/5 rounded-full bg-gradient-to-r from-accent-400 to-emerald-400"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOGO / TRUST STRIP -->
+    <section class="border-y border-white/5 bg-ink-900/60">
+      <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <p class="text-center text-xs font-medium uppercase tracking-[0.2em] text-slate-500">Founded, built &amp; presented</p>
+        <div class="mt-7 flex flex-wrap items-center justify-center gap-x-14 gap-y-8 opacity-90">
+          <!-- YesSmile wordmark -->
+          <div class="flex items-center gap-2 text-2xl font-bold tracking-tight text-white">
+            <svg class="h-8 w-8" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="#5eb3ff" stroke-width="2"/><path d="M9 18c2 4 12 4 14 0" stroke="#5eb3ff" stroke-width="2.5" stroke-linecap="round"/><circle cx="11.5" cy="12.5" r="1.6" fill="#5eb3ff"/><circle cx="20.5" cy="12.5" r="1.6" fill="#5eb3ff"/></svg>
+            <span>Yes<span class="text-accent-400">Smile</span><span class="text-base font-medium text-slate-500">.ai</span></span>
+          </div>
+          <!-- GuaranTeeth wordmark -->
+          <div class="relative text-2xl font-semibold tracking-tight text-white">
+            Guaran<span class="relative">T<svg class="absolute -top-2 left-0 h-3 w-5" viewBox="0 0 20 12" fill="#2f8fff"><path d="M2 10 L10 2 L18 6 L18 10 Z"/></svg></span>eeth
+          </div>
+          <!-- NYSE: only keep if your appearance/affiliation is real and documented -->
+          <div class="flex items-center gap-3">
+            <span class="rounded border-2 border-white px-2 py-0.5 text-xl font-black tracking-[0.08em] text-white">NYSE</span>
+            <span class="text-xs leading-tight text-slate-400">Presented on<br/>Wall Street</span>
+          </div>
+          <div class="text-lg font-medium text-slate-300">Hyatt Regency <span class="text-slate-500">· Keynote stage</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+      <div class="reveal max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-widest text-accent-400">The real problem</p>
+        <h2 class="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">Growth breaks the systems that got you here.</h2>
+        <p class="mt-5 text-lg text-slate-400">Most companies don't have a sales problem — they have a visibility problem. Leads live in spreadsheets, inboxes, and memory. Off-the-shelf CRMs force your process into someone else's template. The result is predictable:</p>
+      </div>
+      <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="reveal rounded-2xl border border-white/10 bg-ink-900 p-6">
+          <p class="text-3xl">🕳️</p>
+          <h3 class="mt-4 font-semibold text-white">Leads fall through cracks</h3>
+          <p class="mt-2 text-sm text-slate-400">No single source of truth for who was contacted, when, and what happens next.</p>
+        </div>
+        <div class="reveal rounded-2xl border border-white/10 bg-ink-900 p-6">
+          <p class="text-3xl">📉</p>
+          <h3 class="mt-4 font-semibold text-white">Forecasts are guesses</h3>
+          <p class="mt-2 text-sm text-slate-400">Leadership makes decisions on stale, inaccurate pipeline data.</p>
+        </div>
+        <div class="reveal rounded-2xl border border-white/10 bg-ink-900 p-6">
+          <p class="text-3xl">⏳</p>
+          <h3 class="mt-4 font-semibold text-white">Reps do admin, not sales</h3>
+          <p class="mt-2 text-sm text-slate-400">Hours lost each week to manual entry, follow-up tracking, and reporting.</p>
+        </div>
+        <div class="reveal rounded-2xl border border-white/10 bg-ink-900 p-6">
+          <p class="text-3xl">🧱</p>
+          <h3 class="mt-4 font-semibold text-white">Scaling hits a wall</h3>
+          <p class="mt-2 text-sm text-slate-400">Every new hire or location multiplies the chaos instead of the revenue.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOLUTIONS -->
+    <section id="solutions" class="relative border-t border-white/5 bg-ink-900/40 py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="reveal flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+          <div class="max-w-2xl">
+            <p class="text-sm font-semibold uppercase tracking-widest text-accent-400">What we do</p>
+            <h2 class="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">Consulting that diagnoses. <span class="font-serif font-normal italic text-slate-300">Software that fixes.</span></h2>
+          </div>
+          <p class="max-w-md text-slate-400">We don't hand you a slide deck and leave. We find the bottleneck, then build the tool that removes it.</p>
+        </div>
+
+        <div class="mt-14 grid gap-5 md:grid-cols-2">
+          <article class="reveal group rounded-3xl border border-white/10 bg-gradient-to-b from-ink-800 to-ink-900 p-8 transition hover:border-accent-500/40">
+            <div class="grid h-12 w-12 place-items-center rounded-xl bg-accent-500/15 text-accent-400">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
+            </div>
+            <h3 class="mt-6 text-xl font-semibold text-white">Operational Consulting</h3>
+            <p class="mt-3 text-slate-400">A hands-on audit of how work actually flows through your business. We map every handoff, find where time and revenue leak, and deliver a prioritized fix plan.</p>
+          </article>
+          <article class="reveal group rounded-3xl border border-white/10 bg-gradient-to-b from-ink-800 to-ink-900 p-8 transition hover:border-accent-500/40">
+            <div class="grid h-12 w-12 place-items-center rounded-xl bg-accent-500/15 text-accent-400">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 20V9"/></svg>
+            </div>
+            <h3 class="mt-6 text-xl font-semibold text-white">Custom CRM Systems</h3>
+            <p class="mt-3 text-slate-400">A CRM built around your process, your terminology, and your deal cycle — not a generic template your team works around. Your data, your rules, your workflow.</p>
+          </article>
+          <article class="reveal group rounded-3xl border border-white/10 bg-gradient-to-b from-ink-800 to-ink-900 p-8 transition hover:border-accent-500/40">
+            <div class="grid h-12 w-12 place-items-center rounded-xl bg-accent-500/15 text-accent-400">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>
+            </div>
+            <h3 class="mt-6 text-xl font-semibold text-white">Sales Accuracy Tools</h3>
+            <p class="mt-3 text-slate-400">Automated follow-ups, rep scorecards, commission tracking, and real-time dashboards that give sales teams precision and give leaders numbers they can trust.</p>
+          </article>
+          <article class="reveal group rounded-3xl border border-white/10 bg-gradient-to-b from-ink-800 to-ink-900 p-8 transition hover:border-accent-500/40">
+            <div class="grid h-12 w-12 place-items-center rounded-xl bg-accent-500/15 text-accent-400">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+            </div>
+            <h3 class="mt-6 text-xl font-semibold text-white">Scaling Infrastructure</h3>
+            <p class="mt-3 text-slate-400">Systems that let you add reps, locations, and product lines without adding chaos — with AI and automation handling the repetitive work.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PIPELINE INSIGHT -->
+    <section id="pipeline" class="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+      <div class="reveal mx-auto max-w-3xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-widest text-accent-400">Lead intelligence</p>
+        <h2 class="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">Insight on every stage of every lead.</h2>
+        <p class="mt-5 text-lg text-slate-400">From first touch to repeat customer, you'll know exactly where each opportunity stands, who owns it, and what it's worth.</p>
+      </div>
+
+      <ol class="reveal mt-16 grid gap-4 md:grid-cols-5">
+        <li class="relative rounded-2xl border border-white/10 bg-ink-900 p-6">
+          <span class="text-xs font-semibold text-accent-400">01</span>
+          <h3 class="mt-2 font-semibold text-white">Capture</h3>
+          <p class="mt-2 text-sm text-slate-400">Every source tracked automatically. Nothing lost.</p>
+          <div class="mt-5 h-1 rounded-full bg-accent-500/90"></div>
+        </li>
+        <li class="relative rounded-2xl border border-white/10 bg-ink-900 p-6">
+          <span class="text-xs font-semibold text-accent-400">02</span>
+          <h3 class="mt-2 font-semibold text-white">Qualify</h3>
+          <p class="mt-2 text-sm text-slate-400">Scored and routed to the right rep instantly.</p>
+          <div class="mt-5 h-1 rounded-full bg-accent-500/75"></div>
+        </li>
+        <li class="relative rounded-2xl border border-white/10 bg-ink-900 p-6">
+          <span class="text-xs font-semibold text-accent-400">03</span>
+          <h3 class="mt-2 font-semibold text-white">Engage</h3>
+          <p class="mt-2 text-sm text-slate-400">Follow-ups triggered on time, every time.</p>
+          <div class="mt-5 h-1 rounded-full bg-accent-500/60"></div>
+        </li>
+        <li class="relative rounded-2xl border border-white/10 bg-ink-900 p-6">
+          <span class="text-xs font-semibold text-accent-400">04</span>
+          <h3 class="mt-2 font-semibold text-white">Close</h3>
+          <p class="mt-2 text-sm text-slate-400">Accurate forecasts and clear next steps.</p>
+          <div class="mt-5 h-1 rounded-full bg-emerald-400/80"></div>
+        </li>
+        <li class="relative rounded-2xl border border-white/10 bg-ink-900 p-6">
+          <span class="text-xs font-semibold text-accent-400">05</span>
+          <h3 class="mt-2 font-semibold text-white">Retain</h3>
+          <p class="mt-2 text-sm text-slate-400">Lifetime value tracked; renewals never missed.</p>
+          <div class="mt-5 h-1 rounded-full bg-emerald-400"></div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- INDUSTRIES -->
+    <section id="industries" class="border-t border-white/5 bg-ink-900/40 py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="reveal max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-widest text-accent-400">Proven across verticals</p>
+          <h2 class="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">Different industries. Same playbook. Real results.</h2>
+          <p class="mt-5 text-lg text-slate-400">The principles of a great operating system don't change — only the details do. We've proven it in each of these:</p>
+        </div>
+
+        <div class="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="reveal rounded-2xl border border-white/10 bg-ink-900 p-7">
+            <p class="text-2xl">🦷</p>
+            <h3 class="mt-4 text-lg font-semibold text-white">Dental Offices</h3>
+            <p class="mt-2 text-sm text-slate-400">Patient pipelines, treatment-plan follow-up, and front-desk workflows that turn consults into accepted cases.</p>
+          </div>
+          <div class="reveal rounded-2xl border border-white/10 bg-ink-900 p-7">
+            <p class="text-2xl">🏢</p>
+            <h3 class="mt-4 text-lg font-semibold text-white">Real Estate Portfolios</h3>
+            <p class="mt-2 text-sm text-slate-400">Deal flow, property and tenant tracking, and portfolio-level visibility in one place.</p>
+          </div>
+          <div class="reveal rounded-2xl border border-white/10 bg-ink-900 p-7">
+            <p class="text-2xl">🩺</p>
+            <h3 class="mt-4 text-lg font-semibold text-white">Medical Supply</h3>
+            <p class="mt-2 text-sm text-slate-400">Account management, reorder cycles, and territory performance for B2B sales teams.</p>
+          </div>
+          <div class="reveal rounded-2xl border border-white/10 bg-ink-900 p-7">
+            <p class="text-2xl">💳</p>
+            <h3 class="mt-4 text-lg font-semibold text-white">Payment Processing</h3>
+            <p class="mt-2 text-sm text-slate-400">Merchant acquisition pipelines, residual tracking, and rep accountability for card-processing sales orgs.</p>
+          </div>
+          <div class="reveal rounded-2xl border border-white/10 bg-ink-900 p-7">
+            <p class="text-2xl">🏦</p>
+            <h3 class="mt-4 text-lg font-semibold text-white">Asset-Based Lending</h3>
+            <p class="mt-2 text-sm text-slate-400">Borrower intake, underwriting stages, and deal status visibility from application to funding.</p>
+          </div>
+          <a href="#contact" class="reveal group flex flex-col justify-between rounded-2xl border border-dashed border-accent-500/40 bg-accent-500/5 p-7 transition hover:bg-accent-500/10">
+            <div>
+              <p class="text-2xl">➕</p>
+              <h3 class="mt-4 text-lg font-semibold text-white">Your Industry</h3>
+              <p class="mt-2 text-sm text-slate-400">If you have leads, a team, and a process, we can systematize it.</p>
+            </div>
+            <span class="mt-5 text-sm font-semibold text-accent-400 group-hover:underline">Let's talk →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- IN THE ROOM (photos) -->
+    <section class="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+      <div class="reveal max-w-2xl">
+        <p class="text-sm font-semibold uppercase tracking-widest text-accent-400">In the room</p>
+        <h2 class="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">On stage. On Wall Street. In the work.</h2>
+      </div>
+      <div class="mt-12 grid gap-4 md:grid-cols-12">
+        <figure class="reveal relative overflow-hidden rounded-3xl border border-white/10 md:col-span-7 md:row-span-2">
+          <img src="assets/presenting-nyc.jpg" alt="Nicholas presenting the 100-Point AI System in New York City" class="h-full min-h-[320px] w-full object-cover" loading="lazy" />
+          <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-6 pt-16">
+            <p class="font-semibold text-white">Presenting “The 100-Point AI System”</p>
+            <p class="text-sm text-slate-300">New York City</p>
+          </figcaption>
+        </figure>
+        <figure class="reveal relative overflow-hidden rounded-3xl border border-white/10 md:col-span-5">
+          <img src="assets/stage-hyatt-regency.jpg" alt="Nicholas speaking on stage at the Hyatt Regency alongside GuaranTeeth partners" class="aspect-[4/3] w-full object-cover object-[50%_60%]" loading="lazy" />
+          <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-5 pt-14">
+            <p class="font-semibold text-white">Keynote · Hyatt Regency</p>
+            <p class="text-sm text-slate-300">Launching a dentist-led brand collaboration with GuaranTeeth</p>
+          </figcaption>
+        </figure>
+        <figure class="reveal relative overflow-hidden rounded-3xl border border-white/10 md:col-span-5">
+          <img src="assets/team-working-session.jpg" alt="Nicholas in a working session with a client team" class="aspect-[4/3] w-full object-cover" loading="lazy" />
+          <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-5 pt-14">
+            <p class="font-semibold text-white">Hands-on build sessions</p>
+            <p class="text-sm text-slate-300">We work alongside your team, not from a distance</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="border-t border-white/5 bg-ink-900/40 py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="text-sm font-semibold uppercase tracking-widest text-accent-400">How we work</p>
+          <h2 class="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">Four steps from chaos to clarity.</h2>
+        </div>
+        <div class="mt-14 grid gap-8 md:grid-cols-4">
+          <div class="reveal">
+            <p class="font-serif text-5xl italic text-accent-400">1</p>
+            <h3 class="mt-3 text-lg font-semibold text-white">Diagnose</h3>
+            <p class="mt-2 text-sm text-slate-400">We audit your operations and sales process to find the highest-leverage bottlenecks.</p>
+          </div>
+          <div class="reveal">
+            <p class="font-serif text-5xl italic text-accent-400">2</p>
+            <h3 class="mt-3 text-lg font-semibold text-white">Design</h3>
+            <p class="mt-2 text-sm text-slate-400">We architect a system around how your team actually sells and serves customers.</p>
+          </div>
+          <div class="reveal">
+            <p class="font-serif text-5xl italic text-accent-400">3</p>
+            <h3 class="mt-3 text-lg font-semibold text-white">Build</h3>
+            <p class="mt-2 text-sm text-slate-400">We ship your custom CRM and tools fast — then train your team to own them.</p>
+          </div>
+          <div class="reveal">
+            <p class="font-serif text-5xl italic text-accent-400">4</p>
+            <h3 class="mt-3 text-lg font-semibold text-white">Scale</h3>
+            <p class="mt-2 text-sm text-slate-400">We measure, refine, and automate as you grow, so the system keeps up with you.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+      <div class="grid items-center gap-14 lg:grid-cols-2">
+        <div class="reveal relative">
+          <div class="overflow-hidden rounded-3xl border border-white/10">
+            <img src="assets/office-nyc.jpg" alt="Nicholas Biuso working from a Manhattan office" class="aspect-[4/5] w-full object-cover" loading="lazy" />
+          </div>
+          <div class="absolute -bottom-6 -right-2 rounded-2xl border border-white/10 bg-ink-900 px-6 py-5 shadow-2xl sm:-right-6">
+            <p class="text-3xl font-bold text-white">28</p>
+            <p class="text-xs uppercase tracking-wider text-slate-500">Years old · 6 as a founder</p>
+          </div>
+        </div>
+        <div class="reveal">
+          <p class="text-sm font-semibold uppercase tracking-widest text-accent-400">About</p>
+          <h2 class="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">An operator first. <span class="font-serif font-normal italic text-slate-300">Then a builder.</span></h2>
+          <div class="mt-6 space-y-5 text-lg leading-relaxed text-slate-400">
+            <p>I'm Nicholas Biuso — a 28-year-old entrepreneur who has spent the last six years building and scaling businesses, including <span class="text-white">GuaranTeeth</span> in oral care and <span class="text-white">YesSmile</span> in software.</p>
+            <p>I learned the hard way that great companies aren't built on hustle alone — they're built on systems. Now my team and I build those systems for other businesses, turning the lessons from running our own companies into software that changes how teams sell and operate.</p>
+            <p>We work with integrity, tell you the truth about what's broken, and build for the long term — because your business deserves tools that compound.</p>
+          </div>
+          <ul class="mt-8 grid gap-3 sm:grid-cols-2">
+            <li class="flex items-center gap-3 text-slate-300"><span class="grid h-6 w-6 place-items-center rounded-full bg-emerald-400/15 text-emerald-400">✓</span>Integrity over shortcuts</li>
+            <li class="flex items-center gap-3 text-slate-300"><span class="grid h-6 w-6 place-items-center rounded-full bg-emerald-400/15 text-emerald-400">✓</span>Systems over hustle</li>
+            <li class="flex items-center gap-3 text-slate-300"><span class="grid h-6 w-6 place-items-center rounded-full bg-emerald-400/15 text-emerald-400">✓</span>Outcomes over activity</li>
+            <li class="flex items-center gap-3 text-slate-300"><span class="grid h-6 w-6 place-items-center rounded-full bg-emerald-400/15 text-emerald-400">✓</span>Built to last decades</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT CTA -->
+    <section id="contact" class="px-4 pb-24 sm:px-6 lg:px-8">
+      <div class="reveal relative mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-accent-600 via-accent-500 to-ink-800 px-6 py-16 text-center sm:px-16">
+        <div class="grid-bg pointer-events-none absolute inset-0 opacity-60"></div>
+        <div class="relative">
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-5xl">Let's find what's slowing you down.</h2>
+          <p class="mx-auto mt-5 max-w-2xl text-lg text-blue-50/90">Book a 30-minute operations call. You'll leave with a clear picture of where your process leaks time and revenue — whether we work together or not.</p>
+          <div class="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+            <!-- TODO: replace with your booking link and business email -->
+            <a href="https://calendly.com/your-link" class="rounded-full bg-white px-7 py-3.5 font-semibold text-ink-950 transition hover:bg-blue-50">Book a Call</a>
+            <a href="mailto:hello@yourdomain.com" class="rounded-full border border-white/40 px-7 py-3.5 font-semibold text-white transition hover:bg-white/10">Email Me</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/5">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-8 text-sm text-slate-500 sm:flex-row sm:px-6 lg:px-8">
+      <p>© <span id="yr"></span> Nicholas Biuso. All rights reserved.</p>
+      <div class="flex gap-6">
+        <!-- TODO: replace with your profile URLs -->
+        <a href="https://www.linkedin.com/" class="hover:text-white">LinkedIn</a>
+        <a href="#solutions" class="hover:text-white">Solutions</a>
+        <a href="#contact" class="hover:text-white">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  </script>
+</body>
+</html>
