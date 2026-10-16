@@ -90,9 +90,25 @@
     .about .section-label { padding-top: 5px; }
     .about-copy { max-width: 560px; }
     .about-copy p + p { margin-top: 18px; color: var(--muted); }
-    .contact { padding-block: 46px 50px; border-top: 1px solid var(--rule); }
+    .contact { display: grid; grid-template-columns: minmax(0, 1fr) 140px; align-items: center; gap: 48px; padding-block: 46px 50px; border-top: 1px solid var(--rule); }
     .contact h2 { margin-block: 12px 20px; font-size: clamp(30px, 4vw, 42px); font-weight: 400; line-height: 1.2; letter-spacing: -.045em; }
     .email { display: inline-flex; align-items: center; gap: 18px; font-size: 16px; text-decoration-thickness: 1px; }
+    .contact-badge-wrap { position: relative; width: 140px; }
+    .contact-badge { position: relative; display: grid; place-items: center; width: 140px; height: 140px; border-radius: 50%; text-decoration: none; }
+    .contact-badge:hover { text-decoration: none; }
+    .badge-ring { position: absolute; inset: 0; width: 100%; height: 100%; fill: var(--muted); transform-origin: 50% 50%; animation: badge-turn 24s linear infinite; }
+    .badge-ring text { font-family: ui-monospace, "SFMono-Regular", Menlo, monospace; font-size: 10px; font-weight: 500; }
+    .badge-arrow { display: grid; place-items: center; width: 58px; height: 58px; border: 1px solid var(--rule); border-radius: 50%; transition: background-color .2s, color .2s; }
+    .badge-arrow svg { width: 22px; height: 22px; }
+    .contact-badge:hover .badge-ring, .contact-badge:focus-visible .badge-ring { animation-play-state: paused; fill: var(--ink); }
+    .contact-badge:hover .badge-arrow, .contact-badge:focus-visible .badge-arrow { background: var(--ink); color: var(--paper); }
+    .contact-badge-wrap.is-paused .badge-ring { animation-play-state: paused; }
+    .badge-motion { position: absolute; top: calc(100% - 4px); left: 50%; transform: translateX(-50%); display: grid; place-items: center; width: 32px; height: 32px; padding: 8px; border: 0; border-radius: 50%; background: transparent; color: var(--muted); cursor: pointer; }
+    .badge-motion:hover { color: var(--ink); }
+    .badge-motion svg { width: 14px; height: 14px; }
+    .motion-play, .is-paused .motion-pause { display: none; }
+    .is-paused .motion-play { display: block; }
+    @keyframes badge-turn { to { transform: rotate(360deg); } }
     .footer { display: flex; justify-content: space-between; gap: 24px; padding-block: 24px 32px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 12px; }
     .footer a { text-decoration: none; }
     .footer a:hover { text-decoration: underline; }
@@ -118,6 +134,9 @@
       .photo-tile--presenting { grid-column: 1 / -1; aspect-ratio: 4 / 3; }
       .photo-tile--portrait, .photo-tile--team { aspect-ratio: 1; }
       .about { grid-template-columns: 1fr 2fr; gap: 24px; padding-block: 64px; }
+      .contact { grid-template-columns: minmax(0, 1fr) 120px; gap: 24px; }
+      .contact-badge-wrap { width: 120px; }
+      .contact-badge { width: 120px; height: 120px; }
     }
     @media (max-width: 480px) {
       .header { font-size: 12px; gap: 16px; }
@@ -131,10 +150,16 @@
       .project { grid-template-columns: 24px 1fr; row-gap: 12px; padding-block: 24px; }
       .project-description { grid-column: 2; }
       .about { grid-template-columns: 1fr; gap: 22px; padding-block: 48px; }
-      .contact { padding-block: 36px 40px; }
+      .contact { grid-template-columns: 1fr; gap: 28px; padding-block: 36px 40px; }
+      .contact-badge-wrap { justify-self: end; }
       .footer { font-size: 11px; gap: 16px; }
     }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .badge-ring { animation: none; }
+      .badge-arrow { transition: none; }
+      .badge-motion { display: none; }
+    }
   </style>
 </head>
 <body id="top">
@@ -210,9 +235,28 @@
         </div>
       </section>
       <section class="contact" id="contact" aria-labelledby="contact-title">
-        <p class="section-label">Get in touch</p>
-        <h2 id="contact-title">Have something in mind?</h2>
-        <a class="email" href="mailto:nick@guaranteeth.net">nick@guaranteeth.net <span class="arrow" aria-hidden="true">↗</span></a>
+        <div>
+          <p class="section-label">Get in touch</p>
+          <h2 id="contact-title">Have something in mind?</h2>
+          <a class="email" href="mailto:nick@guaranteeth.net">nick@guaranteeth.net <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="contact-badge-wrap">
+          <a class="contact-badge" href="mailto:nick@guaranteeth.net" aria-label="Email Nicholas Biuso — let's make your project work">
+            <svg class="badge-ring" viewBox="0 0 140 140" aria-hidden="true" focusable="false">
+              <defs>
+                <path id="contact-badge-path" d="M 70,16 a 54,54 0 1,1 0,108 a 54,54 0 1,1 0,-108" />
+              </defs>
+              <text><textPath href="#contact-badge-path" textLength="339.29" lengthAdjust="spacing">LET’S MAKE IT WORK · LET’S MAKE IT WORK · </textPath></text>
+            </svg>
+            <span class="badge-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" focusable="false"><path d="M6 18 18 6M6 6h12v12" /></svg>
+            </span>
+          </a>
+          <button class="badge-motion" type="button" aria-label="Pause badge animation" title="Pause badge animation">
+            <svg class="motion-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6v12M15 6v12" /></svg>
+            <svg class="motion-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="m9 6 9 6-9 6Z" /></svg>
+          </button>
+        </div>
       </section>
     </main>
     <footer class="footer">
@@ -220,5 +264,14 @@
       <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
     </footer>
   </div>
+  <script>
+    const badgeMotion = document.querySelector('.badge-motion');
+    badgeMotion.addEventListener('click', () => {
+      const paused = badgeMotion.closest('.contact-badge-wrap').classList.toggle('is-paused');
+      const label = paused ? 'Resume badge animation' : 'Pause badge animation';
+      badgeMotion.setAttribute('aria-label', label);
+      badgeMotion.title = label;
+    });
+  </script>
 </body>
 </html>
